@@ -1,0 +1,82 @@
+{
+  "name": "telegram_bot",
+  "version": "0.0.0-development",
+  "description": "The acriatura bot for Telegram",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./src --ext .ts",
+    "lint:fix": "eslint ./src --ext .ts --fix",
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node dist/index.js",
+    "watch-node": "nodemon src/index.ts --ignore idols.json --ignore groups.json",
+    "watch-ts": "tsc -w",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "semantic-release": "semantic-release",
+    "commit": "cz"
+  },
+  "keywords": [],
+  "author": "Igor França <igorcnfranca@gmail.com>",
+  "release": {
+    "branch": [
+      {
+        "name": "master",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/github"
+      ]
+    ]
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.9.3",
+    "@types/node-cron": "^2.0.4",
+    "@types/node-fetch": "^2.5.12",
+    "@types/node-telegram-bot-api": "^0.51.4",
+    "cheerio": "^1.0.0-rc.9",
+    "dotenv": "^8.6.0",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "node-telegram-bot-api": "^0.50.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "semantic-release": "^18.0.1",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mixplick/acritatura-bot.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
