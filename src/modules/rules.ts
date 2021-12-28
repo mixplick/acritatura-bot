@@ -7,6 +7,19 @@ const rules = (bot: TelegramBot, msg: TelegramBot.Message): void => {
         ,
         {
             parse_mode: 'HTML',
+            // reply_markup: githubButton,
+        }
+    );
+
+}
+
+const source = (bot: TelegramBot, msg: TelegramBot.Message): void => {
+    bot.sendMessage(
+        msg.chat.id,
+        `XGH não pensa, faz a primeira coisa que vem à mente. Não existe segunda opção, a única opção é a mais rápida.`
+        ,
+        {
+            parse_mode: 'HTML',
             reply_markup: githubButton,
         }
     );
@@ -16,8 +29,8 @@ const githubButton = {
     inline_keyboard: [
         [{
             text: '🤖 Source Code',
-            url: 'https://github.com/BreadGenie/van-tg-bot'
+            url: 'https://github.com/mixplick/acritatura-bot'
         }]
     ]
 };
-export default rules;
+export default { rules, source };

@@ -7,9 +7,7 @@ dotenv.config();
 const TOKEN: string = process.env.TELEGRAM_TOKEN!;
 const url = process.env.BOT_DOMAIN;
 const port: string | undefined = process.env.PORT;
-const bot = new TelegramBot(TOKEN, {
-    polling: true
-});
+const bot = new TelegramBot(TOKEN);
 
 
 if (process.env.NODE_ENV === 'production') {
